@@ -310,7 +310,7 @@ function menorIdade() {
     contIdade = 1;
 
     idade = Number(prompt('Digite a idade' + contIdade + 'º idadde'));
-   
+
     menorIdade = idade;
 
     while (contIdade <= 4) {
@@ -321,9 +321,65 @@ function menorIdade() {
         }
         contIdade++;
     }
-    alert('A menor idade é  ' +menorIdade);
+    alert('A menor idade é  ' + menorIdade);
 }
-menorIdade();
+/* menorIdade(); */
+
+function calcRacao() {
+    let pesoRacao, qtdeGatos, qtdeGramas, qtdeDias, total;
+    pesoRacao = Number(prompt('Digite quantos kilos de ração deseja comprar'));
+    qtdeGatos = Number(prompt('Digite quantos gatos vc quer alimentar'));
+    qtdeGramas = Number(prompt('Digite quantas gramas de ração'));
+    qtdeDias = Number(prompt('Digite quantos dias vc quer alimentar'));
+    total = pesoRacao - ((qtdeGramas * qtdeGatos) / 1000) * qtdeDias;
+    alert('A quantidade de ração por gatos são  ' + total);
+}
+/* calcRacao(); */
+
+function calcIdadeatual() {
+    let anonasc, anoatual, total, meses, qtdemeses;
+    anonasc = Number(prompt('Digite o ano que vc nasceu '));
+    anoatual = Number(prompt('Digite o ano atual'));
+    total = (anoatual - anonasc);
+    meses = 12
+    qtdemeses = total * meses
+
+    alert('vc tem ' + total + ' anos  ' + qtdemeses + ' meses');
+}
+//calcIdadeatual();//
+
+
+function calcIdades() {
+    let question, idade = 0, contIdade = 0, somaIdade = 0, media = 0, contMaior = 0;
+        question = prompt('Deseja digitar informações de usuários ? Sim para continuar ou Não para parar');
+        while ( question == "sim"){
+            idade = Number(prompt("Digite uma idade"));
+            contIdade++
+            somaIdade += idade
+            if( idade >=21){
+                contMaior ++
+            }
+            question = prompt('Deseja digitar informações de usuários ? Sim para continuar ou Não para parar');        
+        }
+        media = somaIdade / contIdade;        
+        alert("Foram digitadas " +contIdade+ " idades, a média das idades digitadas é " +media+ " e " +contMaior+ " possuem 21 anos ou mais ");
+    }    
+//calcIdades();//
+
+function calcnumbers(){
+    let question = 0, numeros =0,soma = 0, total = 0;
+
+    question = prompt("Caso queira continuar digite Sim ");
+    while( question == "sim"){
+        numeros = Number(prompt(" Digite um valor"))
+
+    }
+
+}
+calcnumbers()
+
+
+
 
 
 
