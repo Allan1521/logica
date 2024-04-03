@@ -366,17 +366,119 @@ function calcIdades() {
     }    
 //calcIdades();//
 
-function calcnumbers(){
-    let question = 0, numeros =0,soma = 0, total = 0;
-
-    question = prompt("Caso queira continuar digite Sim ");
-    while( question == "sim"){
-        numeros = Number(prompt(" Digite um valor"))
-
+function calcValue(){
+    let question, values, contValues, somaValues, medValues, menorValue
+    contValues = 0
+    somaValues = 0
+    menorValue = 0
+    question = prompt('Deseja digitar valores? sim-para continuar e não-para continuar')
+    while(question=='sim'){
+        values = Number(prompt('Digite aqui seu valor:'))
+        contValues++
+        somaValues += values
+        if(values<menorValue || menorValue==0){
+            menorValue = values
+        }
+        question = prompt('Deseja digitar valores? sim-para continuar e não-para continuar')
     }
-
+    medValues = somaValues/contValues
+    alert('O somatório final dos valores foi '+somaValues+', enquanto sua média é de '+medValues+' E o menor valor foi '+menorValue)
 }
-calcnumbers()
+//calcValue()//
+
+
+
+function formulario(){
+    let nome, idade, genero, idMaior = 0, idMenor = 0, pjov , pve, media = 0, somaid = 0, contid = 0, qtdHomens = 0;
+    question = prompt('Deseja digitar valores? sim-para continuar e não-para continuar');
+
+    while (question == "sim"){
+        nome = prompt("digite seu nome");
+        idade = Number(prompt( "digite sua idade"));
+        genero =prompt("digite seu genero");
+            /* verificar qual o mais velho */
+        if(idade>idMaior){
+            idMaior = idade;
+            pve = nome;
+        }
+        /* verificar a mulher mais jovem e mostrar */
+        if(idade<idMenor || idMenor == 0 && genero == 'f'){
+            idMenor = idade;
+            pjov = nome;
+        } /* quantos homens maiores que 30 */
+        if(idade > 30 && genero == "h"){
+            qtdHomens ++;
+        }
+        /* quantas mulheres */
+        if(idade<18 && genero =="f"){
+            qtdMulheresMenor++;
+        }
+        count ++;
+        soma += nome
+
+
+        question = prompt('Deseja digitar valores? sim-para continuar e não-para continuar');
+    }
+    alert("O nome da pessoa mais velha é " +pve);
+    alert("O nome da mulher mais jovem é " +pjov);
+
+
+    
+}
+
+//formulario();//
+
+
+
+function lerIdades() {
+    let nome, idade = 0, genero, idMaior = 0, menor = 0, maisVelha =0 , mulherNova = 0, count = 0, soma = 0, qtdHomens = 0, qtdMulherMenor = 0;
+    let op = prompt('deseja cadastrar um usário? (s/n)');
+/* variáveis que tem que ser zeradas todas que vão receber resultados de operções matemáticas. Ex: números, quantidades, somatórias, acumalativas */
+
+    while (op == 's' && op != 'n') {
+        /* cadastro de dados */
+        nome = prompt('Nome: ');
+        idade = Number (prompt('digite a idade: '));
+        genero = prompt('Gênero (h - homem / m - mulher): ');
+
+        /* verificar qual o mais velho */
+        if (idade > idMaior) {
+            idMaior = idade;
+            maisVelha = nome;
+        }
+        /* verificar a mulher mais jovem e mostrar */
+        if (idade < menor || menor == 0 && genero == 'm') {
+            menor = idade;
+            mulherNova = nome;
+        }
+        /* Quantos homens maiores que 30  */
+        if (idade > 30 && genero == 'h'){
+            qtdHomens++;
+        
+        }
+        /* Quantas mulheres */
+        if(idade < 18 || qtdMulherMenor == 0 && genero == 'm' ){
+            qtdMulherMenor++;
+        }
+        /* contador p/média de idades */
+        count++;
+        soma+=idade;
+
+        op = prompt('deseja cadastrar um usário?(s/n)');
+    }
+    /* média */
+
+    let media = soma / count;
+
+    alert('O nome da pessoa mais velha é: ' + maisVelha);
+    alert('O nome da pessoa mulher mais jovem é: ' + mulherNova);
+    alert('A média das pessoas:' + media.toFixed(2));
+    alert('Quantos homems com mais 30 ' + qtdHomens);
+    alert('Quantas mulheres tem menos de 18 anos: ' + qtdMulherMenor);
+}   
+/* lerIdades(); */
+
+
 
 
 
